@@ -10,8 +10,8 @@
 
     </thead>
     <tbody>
-      {% if drivers.exists %}
-        {% for driver in drivers %}
+      {% if driver_list %}
+        {% for driver in driver_list %}
           <tr>
             <td>{{ driver.id }}</td>
             <td>
