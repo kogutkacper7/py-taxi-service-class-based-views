@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Manufacturers list</h1>
+  <ul>
+  {% if manufacturers %}
+    <ul>
+      {% for manufacturer in manufacturers %}
+        <li>
+          {{manufacturer.name}}
+          {{manufacturer.country}}
+        </li>
+
+      {% empty %}
+        <p>There are no manufacturers in data base.</p>
+      {% endfor %}
+    </ul>
+   {% else %}
+    <p>Manufacturers not found.</p>
+  {% endif %}
+
+
+{% endblock %}

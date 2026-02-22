@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>{{ car.model }}</h1>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Manufacturer Name</th>
+        <th>Manufacturer Country</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ car.manufacturer.name }}</td>
+        <td>{{ car.manufacturer.country }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ul>
+    {% if car.drivers.exists %}
+      {% for driver in car.drivers.all %}
+        <li>{{ driver.license_number }}</li>
+      {% endfor %}
+    {% endif %}
+  </ul>
+
+{% endblock %}
