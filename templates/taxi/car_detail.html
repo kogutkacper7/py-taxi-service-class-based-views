@@ -18,11 +18,14 @@
   </table>
 
   <ul>
-    {% if car.drivers.exists %}
-      {% for driver in car.drivers.all %}
-        <li>{{ driver.license_number }}</li>
-      {% endfor %}
-    {% endif %}
+    {% for driver in car.drivers.all %}
+      <li>{{ driver.license_number }}</li>
+      <li>{{ driver.username}}</li>
+      <li><a href="{% url 'taxi:driver-detail'  pk=driver.pk  %}">{{ driver.first_name}}</a></li>
+      <li>{{ driver.last_name}}</li>
+      {% empty %}
+        <li>No drivers</li>
+    {% endfor %}
   </ul>
 
 {% endblock %}
