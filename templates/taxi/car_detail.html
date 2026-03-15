@@ -19,12 +19,14 @@
 
   <ul>
     {% for driver in car.drivers.all %}
-      <li>{{ driver.license_number }}</li>
-      <li>{{ driver.username}}</li>
-      <li><a href="{% url 'taxi:driver-detail'  pk=driver.pk  %}">{{ driver.first_name}}</a></li>
-      <li>{{ driver.last_name}}</li>
-      {% empty %}
-        <li>No drivers</li>
+      <li>
+        {{ driver.license_number }}
+        - {{ driver.username}}
+        <a href="{% url 'taxi:driver-detail'  pk=driver.pk  %}">- {{ driver.first_name}}</a>
+        - {{ driver.last_name}}
+      </li>
+        {% empty %}
+      <li>No drivers</li>
     {% endfor %}
   </ul>
 

@@ -5,9 +5,11 @@
     <p>Cars:</p>
       <ul>
         {% for car in driver.cars.all %}
-          <li>{{ car.model }}</li>
-          <li>{{ car.manufacturer.name }}</li>
-          <li>{{ car.manufacturer.country }}</li>
+          <li>
+            {{ car.model }}
+            - {{ car.manufacturer.name }}
+            - {{ car.manufacturer.country }}
+          </li>
 
         {% endfor %}
       </ul>
